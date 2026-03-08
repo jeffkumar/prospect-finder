@@ -6,7 +6,8 @@ import glob
 
 load_dotenv()
 
-OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 CSV_PATH = os.path.join(OUTPUT_DIR, "prospects.csv")
 
 TASK = """
