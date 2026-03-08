@@ -1,0 +1,13 @@
+[project]
+name = "browser-use-project"
+version = "0.1.0"
+description = "Browser automation with AI agents"
+requires-python = ">=3.11"
+dependencies = [
+    "browser-use",
+    "python-dotenv",
+    "langchain-anthropic",
+    "beautifulsoup4>=4.14.3",
+    "requests>=2.32.5",
+    "playwright>=1.58.0",
+]
