@@ -8,3 +8,4 @@ dist/
 build/
 *.mov
 *.mp4
+output/
