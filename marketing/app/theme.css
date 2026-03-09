@@ -1,0 +1,252 @@
+:root {
+  --af-background: #f5f5f5;
+  --af-primary: #ffffff;
+  --af-secondary: #8d9aa5;
+  --af-accent: #fcb900;
+  --af-navbar: #f5f5f5;
+  --af-footer: #f5f5f5;
+  --af-surface: #1f2937;
+  /* panel surface */
+  --af-input-bg: #374151;
+  --af-input-border: #4b5563;
+  --af-border-subtle: rgba(0, 0, 0, 0.08);
+  --af-hero-grid-line: rgba(0, 0, 0, 0.06);
+  --af-hero-grid-box: rgba(0, 0, 0, 0.09);
+  --af-error: #b91c1c;
+}
+
+.border-subtle {
+  border-color: var(--af-border-subtle);
+}
+
+.card-surface-light {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--af-border-subtle);
+}
+
+/* Color utility classes sourced from theme variables */
+.bg-background {
+  background-color: var(--af-background);
+}
+
+.bg-navbar {
+  background-color: var(--af-navbar);
+}
+
+.bg-footer {
+  background-color: var(--af-footer);
+}
+
+.bg-primary {
+  background-color: var(--af-primary);
+}
+
+.bg-secondary {
+  background-color: var(--af-secondary);
+}
+
+.bg-surface {
+  background-color: var(--af-surface);
+}
+
+.bg-input {
+  background-color: var(--af-input-bg);
+}
+
+.text-primary {
+  color: var(--af-primary);
+}
+
+.text-secondary {
+  color: var(--af-secondary);
+}
+
+.border-input {
+  border-color: var(--af-input-border);
+}
+
+/* Interaction helpers */
+.hover\:bg-secondary:hover {
+  background-color: var(--af-secondary);
+}
+
+.hover\:text-secondary:hover {
+  color: var(--af-secondary);
+}
+
+.focus-ring-primary:focus {
+  outline: 2px solid var(--af-accent);
+  outline-offset: 2px;
+}
+
+/* Additional theme utilities (no Tailwind colors) */
+.text-contrast {
+  color: #000000;
+}
+
+.bg-error {
+  background-color: rgba(185, 28, 28, 0.1);
+}
+
+.text-error {
+  color: var(--af-error);
+}
+
+.border-error {
+  border-color: var(--af-error);
+}
+
+.input-light {
+  background-color: var(--af-primary);
+  border: 1px solid var(--af-border-subtle);
+  color: var(--af-surface);
+}
+
+/* Hero grid: subtle static lines */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--af-hero-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--af-hero-grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Moving lit boxes: React-driven, one cell at a time, no overlap */
+.hero-grid-boxes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-grid-box {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  left: 0;
+  top: 0;
+  background-color: var(--af-hero-grid-box);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.hero-grid-box-movable {
+  transition: transform 0.28s linear;
+}
+
+.hero-grid-box-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 7px;
+  font-weight: 600;
+  color: var(--af-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-grid-box-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  margin-bottom: 4px;
+}
+
+.hero-grid-box:hover .hero-grid-box-tooltip {
+  opacity: 1;
+}
+
+.hero-radial {
+  position: absolute;
+  inset: -20% -10% 0 -10%;
+  z-index: 0;
+  background:
+    radial-gradient(600px circle at 50% -10%, rgba(252, 185, 0, 0.15), transparent 40%),
+    radial-gradient(800px circle at 80% 0%, rgba(255, 255, 255, 0.08), transparent 40%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.glass-surface {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+}
+
+/* Accent utilities derived from theme */
+.bg-accent {
+  background-color: var(--af-accent);
+}
+
+.text-accent {
+  color: var(--af-accent);
+}
+
+.border-accent {
+  border-color: var(--af-accent);
+}
+
+.glass-accent {
+  background-color: rgba(252, 185, 0, 0.08);
+  border: 1px solid var(--af-accent);
+  backdrop-filter: blur(6px);
+}
+
+/* Logo marquee (infinite scroll) */
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+  opacity: 0.85;
+}
+
+.marquee-item {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-invert {
+  filter: invert(1) brightness(1.6);
+  opacity: 0.9;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
